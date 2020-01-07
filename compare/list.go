@@ -45,11 +45,13 @@ func MakeList(vals ...int) *ListNode {
 func PrintList(l *ListNode) {
 	p := l
 
-	for l.Next != nil {
-		fmt.Printf("%d -> ", p.Val)
-		p = p.Next
+	var result string
+	for ; p.Next != nil; p = p.Next {
+		result += fmt.Sprintf("%d -> ", p.Val)
 	}
-	fmt.Printf("%d. ", p.Val)
+	result += fmt.Sprintf("%d. \n", p.Val)
+
+	fmt.Println(result)
 
 	return
 }
