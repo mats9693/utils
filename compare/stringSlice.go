@@ -6,18 +6,23 @@ func CompareOnStringSlice(a, b []string) bool {
 		return false
 	}
 
-	var bMap = make(map[string]int, len(b))
-	for i := range b {
-		bMap[b[i]] = 0
+	m := make(map[string]int, len(b))
+	for _, v := range b {
+		m[v]++
 	}
 
-	for i := range a {
-		if _, ok := bMap[a[i]]; ok {
-			delete(bMap, a[i])
+	isEqual := true
+	for _, v := range a {
+		if _, ok := m[v]; ok {
+			m[v]--
+			if m[v] <= 0 {
+				delete(m, v)
+			}
 		} else {
-			return false
+			isEqual = false
+			break
 		}
 	}
 
-	return len(bMap) == 0
+	return isEqual && len(m) == 0
 }

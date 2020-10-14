@@ -16,7 +16,7 @@ func CompareOnErWeiInt(a, b [][]int) bool {
 	}
 
 	for i := range a {
-		index = contain(bMap, a[i])
+		index = contains(bMap, a[i])
 		if index != -1 {
 			delete(bMap, index)
 		} else {
@@ -27,9 +27,9 @@ func CompareOnErWeiInt(a, b [][]int) bool {
 	return true
 }
 
-// if map contain 'is', return map.key
-// or return -1 means not contain
-func contain(m map[int][]int, is []int) int {
+// if map contains 'is', return map.key
+// or return -1 means not contains
+func contains(m map[int][]int, is []int) int {
 	var (
 		isFlag  []int
 		isMatch bool

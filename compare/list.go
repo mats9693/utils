@@ -10,22 +10,23 @@ type ListNode struct {
 
 // CompareOnList compare if two list is equal
 func CompareOnList(a, b *ListNode) bool {
-	if a == nil && b == nil {
+	if a == nil && b == nil { // a == b == nil
 		return true
-	} else if a == nil || b == nil {
+	} else if a == nil || b == nil { // a or b is nil
 		return false
 	}
 
-	for a.Next != nil && b.Next != nil {
-		if a.Val != b.Val {
+	p, q := a, b
+	for p != nil && q != nil {
+		if p.Val != q.Val {
 			return false
 		}
 
-		a = a.Next
-		b = b.Next
+		p = p.Next
+		q = q.Next
 	}
 
-	return a.Val == b.Val && a.Next == nil && b.Next == nil
+	return p == nil && q == nil
 }
 
 // MakeList make a list
