@@ -11,7 +11,7 @@ func TestCompareOnErWeiInt(t *testing.T) {
 	}
 
 	for i := range testCase {
-		if !CompareOnErWeiInt(testCase[i].In, testCase[i].Expect) {
+		if !CompareOnTwoDimensionalSlice(testCase[i].In, testCase[i].Expect) {
 			t.Errorf("compare on er-wei int failed.")
 		}
 	}

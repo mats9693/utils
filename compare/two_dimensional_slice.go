@@ -1,7 +1,7 @@
 package cmp
 
-// CompareOnErWeiInt compare if two er-wei int slice is equal
-func CompareOnErWeiInt(a, b [][]int) bool {
+// CompareOnTwoDimensionalSlice compare if two int slice is equal
+func CompareOnTwoDimensionalSlice(a, b [][]int) bool {
 	if len(a) != len(b) {
 		return false
 	}
